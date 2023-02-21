@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/be-nifi.iml" filepath="$PROJECT_DIR$/.idea/be-nifi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lib-core/lib-core.iml" filepath="$PROJECT_DIR$/lib-core/lib-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nifi-service/nifi-service.iml" filepath="$PROJECT_DIR$/nifi-service/nifi-service.iml" />
+    </modules>
+  </component>
+</project>

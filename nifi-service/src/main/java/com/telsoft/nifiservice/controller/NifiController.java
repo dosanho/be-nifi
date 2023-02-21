@@ -11,7 +11,8 @@ import java.util.Map;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/nifi")
+@RequestMapping("/api/v1/nifi")
+@CrossOrigin("/*")
 public class NifiController {
 
     private final TokenService tokenService;

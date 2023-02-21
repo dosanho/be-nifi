@@ -1,5 +1,7 @@
 package com.telsoft.libcore.util;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.text.WordUtils;
 import org.springframework.web.context.request.RequestContextHolder;
@@ -39,9 +41,9 @@ public class Utils {
 //        return new GsonBuilder().serializeNulls().setDateFormat(Const.DFT.DATETIME_FORMAT).create();
 //    }
 //
-//    public static Gson getGsonUtc() {
-//        return new GsonBuilder().serializeNulls().registerTypeAdapter(Date.class, new GsonUtcDateAdapter()).create();
-//    }
+    public static Gson getGsonUtc() {
+        return new GsonBuilder().serializeNulls().registerTypeAdapter(Date.class, new GsonUtcDateAdapter()).create();
+    }
 //
 //    public static String getToken(HttpServletRequest request) throws Exception {
 //        return fixNull(request.getHeader("Authorization"));

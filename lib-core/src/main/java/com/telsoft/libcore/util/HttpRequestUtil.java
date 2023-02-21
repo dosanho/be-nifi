@@ -1,6 +1,8 @@
 package com.telsoft.libcore.util;
 
+import com.google.gson.Gson;
 import com.telsoft.libcore.constant.ResultCode;
+import com.telsoft.libcore.dto.ResponseMessageDTO;
 import lombok.extern.slf4j.Slf4j;
 import okhttp3.*;
 
@@ -52,13 +54,11 @@ public class HttpRequestUtil {
 
     public String executeToString(String url, RequestBody formBody, String token, REQUEST_TYPE requestType) throws Exception {
         Response response = execute(url, formBody, token, requestType);
+
         String responseText = response.body().string();
 
-//        if (!response.isSuccessful() && exceptionOnError) {
-//            log.error(getLogText(url, null, responseText));
-//            throw new CbsException(ResultCode.Code.INTERNAL_SERVER_ERROR);
-//        }
-
+//        Gson gson = Utils.getGsonUtc();
+//        ResponseMessageDTO responseMessageDTO = gson.fromJson(responseText,ResponseMessageDTO.class);
         return responseText;
     }
 
@@ -108,12 +108,23 @@ public class HttpRequestUtil {
                     .readTimeout(timeout == 0 ? DEFAULT_TIMEOUT : timeout, TimeUnit.SECONDS)
                     .build();
         }
-        Headers headers = new Headers.Builder()
-                .add("Accept", "*/*")
-                .add("Content-Type", "application/x-www-form-urlencoded")
+        Headers headers = null;
+        if (token != null) {
+            headers = new Headers.Builder()
+                    .add("Accept", "application/json")
+                    .add("Content-Type", "application/json")
 //                .add("Internal-Request-Pwd", Const.INTERNAL_HTTP_REQUEST_PASSWORD)
-//                .add("Authorization", token)
-                .build();
+                    .add("Authorization", token)
+                    .build();
+
+        } else {
+            headers = new Headers.Builder()
+                    .add("Accept", "*/*")
+                    .add("Content-Type", "application/x-www-form-urlencoded")
+//                .add("Internal-Request-Pwd", Const.INTERNAL_HTTP_REQUEST_PASSWORD)
+//                    .add("Authorization", token)
+                    .build();
+        }
 
 
         Request request = null;

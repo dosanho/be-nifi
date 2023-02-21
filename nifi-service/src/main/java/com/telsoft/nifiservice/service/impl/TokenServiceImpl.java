@@ -1,7 +1,9 @@
-package com.telsoft.nifiservice.service;
+package com.telsoft.nifiservice.service.impl;
 
 import com.telsoft.libcore.message.ResponseMsg;
 import com.telsoft.libcore.util.HttpRequestUtil;
+import com.telsoft.nifiservice.dto.UserDTO;
+import com.telsoft.nifiservice.service.TokenService;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import okhttp3.FormBody;
@@ -33,8 +35,13 @@ public class TokenServiceImpl implements TokenService {
                 .add(USERNAME, value.get(USERNAME).toString())
                 .add(PASSWORD, value.get(PASSWORD).toString())
                 .build();
-
         String responseText = httpRequestUtil.post(url, formBody, null);
-        return ResponseMsg.newOKResponse(responseText);
+
+        UserDTO result = UserDTO.builder()
+                .username("admin")
+                .accessToken(responseText)
+                .build();
+
+        return ResponseMsg.newOKResponse(result);
     }
 }
