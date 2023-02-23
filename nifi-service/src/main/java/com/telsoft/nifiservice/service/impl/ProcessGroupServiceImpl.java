@@ -3,6 +3,7 @@ package com.telsoft.nifiservice.service.impl;
 import com.telsoft.libcore.message.ResponseMsg;
 import com.telsoft.libcore.util.HttpRequestUtil;
 import com.telsoft.nifiservice.dto.UserDTO;
+import com.telsoft.nifiservice.dto.VariablesDTO;
 import com.telsoft.nifiservice.service.ProcessGroupService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -41,5 +42,11 @@ public class ProcessGroupServiceImpl implements ProcessGroupService {
         } catch (Exception e) {
             throw e;
         }
+    }
+
+    @Override
+    public ResponseMsg updateVariable(VariablesDTO variablesDTO) throws Exception {
+        System.out.println(variablesDTO);
+        return null;
     }
 }
