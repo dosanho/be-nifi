@@ -3,11 +3,12 @@ server:
 spring:
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://10.11.10.109:3306/db_nifi_service
-    username: test
-    password: Aa12345678@
+    url: jdbc:mysql://localhost:3306/db_nifi_service
+    username: root
+    password: 12345678
 
 link:
   timeout: 60
   url:
     nifi-service:  https://10.11.10.108:8088/nifi-api
+
