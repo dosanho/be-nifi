@@ -27,7 +27,6 @@ public class Project extends BaseEntity implements Cloneable{
     private Long projectId;
     @Size(max = 100)
     @Column(name = "PROJECT_NAME", nullable = false, length = 30)
-//    @JsonDeserialize(using = TrimSpace.class)
     private String projectName;
     @Size(max = 255)
     @Column(name = "DESCRIPTION", nullable = true, length = 256)
