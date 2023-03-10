@@ -1,0 +1,12 @@
+package com.telsoft.libcore.repo;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.NoRepositoryBean;
+
+@NoRepositoryBean
+public interface CustomerRepo<T, ID> extends JpaRepository<T, ID> {
+
+    void refresh(T t);
+
+    T insert(T t, ID id);
+}

@@ -3,6 +3,7 @@ package com.telsoft.libcore.util;
 import java.time.Instant;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.TemporalAccessor;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.regex.Pattern;
 
@@ -29,6 +30,14 @@ public class DateUtil {
 
     public static boolean isStandardDateValue(String input) {
         return Pattern.matches(PATTERN_ISO8601, input);
+    }
+
+    public static Date addDay(Date dateInput, int day) {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(dateInput);
+        cal.add(5, day);
+        Date returnDate = cal.getTime();
+        return returnDate;
     }
 
 }

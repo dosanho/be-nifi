@@ -22,6 +22,7 @@ import org.springframework.util.MultiValueMap;
 
 
 public class ResponseMsg<T> extends ResponseEntity<ResponseMsg.WrapContent> {
+
     private static final String REGEX_DETAIL_ERROR = "interpolatedMessage='([a-zA-Z0-9_]+)'";
     private static final String REGEX_HIBERNATE_CONSTRAINT_ERROR = "\\sconstraint\\s\\[.+\\.(.+)\\]";//could not execute statement; SQL [n/a]; constraint [PCAT_OWNER_CBS.FK_EAV_ENTI_REFERENCE_EAV_ATT9]; nested exception is org.hibernate.exception.ConstraintViolationException: could not execute statement
     private static final String REGEX_CONSTRAINT_ERROR = "ORA-(\\d+):(.*?)constraint\\s\\((.*?)\\)\\sviolated";//ORA-02292: integrity constraint (PCAT_OWNER_CBS.FK_EAV_ENTI_REFERENCE_EAV_ATT9) violated - child record found
